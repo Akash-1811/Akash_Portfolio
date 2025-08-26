@@ -12,7 +12,7 @@ const TestimonialsSection = () => {
       name: "Shantanu Deshmukh",
       role: "Founder @American Skyline Quality Standards (ASQS).",
       image: ShantanuImg,
-      content: "Akash delivered an exceptional web application that exceeded our expectations. His expertise in React and attention to detail made the entire process smooth and professional.",
+      content: "Akash delivered an exceptional web application that is modern, clean, responsive, and easy to navigate. It perfectly reflects the brand with a professional design and smooth performance, exceeding our expectations. His expertise and attention to detail made the entire process seamless and professional.",
       rating: 5
     },
     {
