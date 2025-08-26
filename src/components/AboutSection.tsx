@@ -59,7 +59,7 @@ const AboutSection = () => {
             <div className="relative overflow-hidden rounded-2xl">
               <img 
                 src={aboutMeImage} 
-                alt="Akash Yadav - Freelance Developer"
+                alt="Akash Yadav - Developer"
                 className="w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-accent opacity-20" />
@@ -86,7 +86,7 @@ const AboutSection = () => {
                 Hi, I'm Akash Yadav
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                A dedicated freelance developer with 4+ years of experience in software development, 
+                A dedicated software developer with 4+ years of experience in software development, 
                 web development, and emerging technologies like AI/ML. I specialize in creating 
                 scalable, efficient solutions that help businesses achieve their digital goals.
               </p>
