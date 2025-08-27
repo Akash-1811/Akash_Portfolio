@@ -20,9 +20,9 @@ const Index = () => {
       <div id="skills">
         <SkillsSection />
       </div>
-      {/* <div id="workexp">
+      <div id="workexp">
         <WorkExperience />
-      </div> */}
+      </div>
 
       {/* 👇 Added Recent Works Section */}
       <div id="recent-works">

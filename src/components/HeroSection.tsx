@@ -9,7 +9,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -25,59 +25,59 @@ const HeroSection = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-primary opacity-5 rounded-full blur-3xl animate-pulse" />
       </div>
 
-      <div className="container relative z-10 text-center">
+      <div className="container relative z-10 text-center px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           {/* Main Heading */}
-          <h1 className="text-hero md:text-6xl lg:text-7xl font-bold mb-6 animate-fadeIn">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fadeIn leading-tight">
             Hi, I'm <span className="hero-text">Akash Yadav</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fadeIn stagger-delay-1">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 sm:mb-8 animate-fadeIn stagger-delay-1">
             Software Developer specializing in
           </p>
 
           {/* Expertise Tags */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12 animate-fadeIn stagger-delay-2">
-            <span className="skill-badge">Web Development</span>
-            <span className="skill-badge">Software Development</span>
-            <span className="skill-badge">Gen AI Development</span>
-            <span className="skill-badge">ML Engineering</span>
-            <span className="skill-badge">Data Science</span>
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 animate-fadeIn stagger-delay-2 px-4 sm:px-0">
+            <span className="skill-badge text-sm sm:text-base">Web Development</span>
+            <span className="skill-badge text-sm sm:text-base">Software Development</span>
+            <span className="skill-badge text-sm sm:text-base">Gen AI Development</span>
+            <span className="skill-badge text-sm sm:text-base">ML Engineering</span>
+            <span className="skill-badge text-sm sm:text-base">Data Science</span>
           </div>
 
           {/* Call-to-Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fadeIn stagger-delay-3">
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary text-white border-0 hover:shadow-primary transition-all duration-300 hover:scale-105"
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 sm:mb-16 animate-fadeIn stagger-delay-3 px-4 sm:px-0">
+            <Button
+              size="lg"
+              className="bg-gradient-primary text-white border-0 hover:shadow-primary transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Mail className="mr-2 h-5 w-5" />
+              <Mail className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Get In Touch
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
-              className="border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300"
+              className="border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300 w-full sm:w-auto"
             >
-              <Download className="mr-2 h-5 w-5" />
+              <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Download Resume
             </Button>
           </div>
 
           {/* Quick Contact */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-muted-foreground animate-fadeIn stagger-delay-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 text-muted-foreground animate-fadeIn stagger-delay-4 px-4 sm:px-0">
             <div className="flex items-center gap-2">
               <Phone className="h-4 w-4" />
-              <a href="tel:+919022445161" className="hover:text-primary transition-colors">
+              <a href="tel:+919022445161" className="hover:text-primary transition-colors text-sm sm:text-base">
                 +91 9022445161
               </a>
             </div>
             <div className="hidden sm:block w-1 h-1 bg-muted-foreground rounded-full" />
             <div className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              <a href="mailto:akashyadav181198@gmail.com" className="hover:text-primary transition-colors">
+              <a href="mailto:akashyadav181198@gmail.com" className="hover:text-primary transition-colors text-sm sm:text-base break-all sm:break-normal">
                 akashyadav181198@gmail.com
               </a>
             </div>

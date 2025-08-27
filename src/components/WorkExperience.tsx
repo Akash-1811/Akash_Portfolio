@@ -1,228 +1,223 @@
-import React, { useState } from "react";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { 
+  Calendar, 
+  MapPin, 
+  Building2, 
+  TrendingUp,
+  Code,
+  Database,
+  Bot,
+  BarChart3
+} from "lucide-react";
 
-const experiences = [
-  {
-    company: "Gebbs Healthcare Solutions",
-    role: "Software Engineer - Data Science",
-    dates: "May 24 – Present",
-    responsibilities: [
-      "Built ML models for quality audits in medical coding and integrated them into user software for real-time auditing, achieving 95% QA KPI and 1.8% efficiency gains.",
-      "Collaborated with industry experts to understand domain-specific data, performed feature importance analysis, and engineered datasets to improve model performance, reducing manual auditing time by 25%.",
-      "Built scalable Django application with ORM for medical coding, achieving 95% QA KPI and 1.8% efficiency gain.",
-      "Automated critical ops tasks with Automation bots, reducing workload by 15%.",
-      "Analyzed data and developed interactive visual dashboards, streamlining reporting and reducing handling time by 25%.",
-      "Supported SQL data operations including migrations and backup risk management."
-    ],
-    technologies: [
-      "Python", "Scikit-learn", "XGBoost", "LightGBM", "Pandas", "NumPy",
-      "Django", "DRF", "MSSQL", "IIS"
-    ]
-  },
-  {
-    company: "Your Digital Lift Gym Software’s",
-    role: "Software Developer",
-    dates: "Jan 22 - May 24",
-    responsibilities: [
-      "Collected, cleaned, and analyzed user and business data to guide development, improving software efficiency and customer satisfaction.",
-      "Built an ML model that assigned personalized fitness exercises based on user details like age, weight, and height, enhancing the effectiveness of workout plans.",
-      "Designed ETL pipelines and interactive dashboards for tracking key metrics, enabling management to make informed decisions."
-    ],
-    technologies: [
-      "Python", "Django", "Scikit-learn", "Pandas", "NumPy", "A/B Testing",
-      "Matplotlib", "Seaborn", "SQL", "Docker", "GitHub"
-    ]
-  }
-];
+const WorkExperience = () => {
+  const experiences = [
+    {
+      
+        company: (
+          <a
+            href="https://www.gebbs.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Gebbs Healthcare Solutions
+          </a>
+        ),
+        position: "Software Engineer - Data Science",
+        duration: "May 2024 – July 2025",
+        location: "Mumbai India",
+        type: "Full-time",
+        icon: <BarChart3 className="h-6 w-6" />,
 
-// Helper function for showing initial lines and toggling ReadMore
-const getSnippet = (arr: string[], isExpanded: boolean, lines: number = 3) => {
-  return isExpanded ? arr : arr.slice(0, lines);
-};
 
-const WorkExperience: React.FC = () => {
-  // Track expanded state for each experience card
-  const [expanded, setExpanded] = useState(Array(experiences.length).fill(false));
-
-  const handleToggle = (idx: number) => {
-    setExpanded(prev =>
-      prev.map((val, i) => (i === idx ? !val : val))
-    );
-  };
+      achievements: [
+        "Developed an advanced ML auditing tool using supervised learning to significantly enhance accuracy of medical coding audits",
+        "Utilized Scikit-learn for anomaly detection, classification, and error prediction",
+        "Conducted feature engineering to preprocess large datasets for improved model performance",
+        "Created visualizations with Matplotlib/Seaborn for real-time insights to drive coding accuracy and compliance",
+        "Built scalable Django application with ORM for medical coding, achieving 95% QA KPI and 1.8% efficiency gain",
+        "Automated critical ops tasks with Automation bots, reducing workload by 15%",
+        "Leveraged Pandas and NumPy for data analysis to optimize processes and reporting reducing handling time by 25%",
+        "Supported SQL data operations including migrations and backup risk management"
+      ],
+      technologies: [
+        "Python", "Scikit-learn", "Logistic Regression", "Pandas", "NumPy", 
+        "Matplotlib", "Seaborn", "Django", "DRF", "MSSQL", "IIS"
+      ],
+      highlights: [
+        { metric: "95%", label: "QA KPI Achievement" },
+        { metric: "25%", label: "Handling Time Reduction" },
+        { metric: "15%", label: "Workload Reduction" }
+      ]
+    },
+    {
+      company: (
+          <a 
+            href="https://yourdigitallift.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            YourDigitallift Gym Software's
+          </a>
+        ),
+        position: "Software Developer",
+        duration: "Jan 2022 - May 2024",
+        location: "Mumbai, India",
+        type: "Full-time",
+        icon: <Code className="h-6 w-6" />,
+        achievements: [
+          "Led Development phases from research to implementation, with a focus on analysing and developing new features, making the software more efficient and effective",
+          "Utilized Git, Docker, Django ORM, and RESTful APIs, enhancing version control, containerization, and API integration",
+          "Streamlined deployment and reduced system downtime through improved development practices",
+          "Applied PyTest for automated testing, resulting in a 20% decrease in bug resolution time and improving code quality across projects"
+        ]
+,
+      technologies: [
+        "Python", "Django", "Rest API", "DRF", "SQL", "GIT", 
+        "Docker", "GitHub", "Pandas", "PyTest"
+      ],
+      highlights: [
+        { metric: "20%", label: "Bug Resolution Time Reduction" },
+        { metric: "100%", label: "Test Coverage Improvement" },
+        { metric: "30%", label: "Deployment Efficiency" }
+      ]
+    }
+  ];
 
   return (
-    <section className="work-modern">
-      <h2 className="work-title">
-        My <span className="work-title-accent">Corporate Work Experience</span>
-      </h2>
-      <div className="work-list">
-        {experiences.map((exp, idx) => {
-          const isLong = exp.responsibilities.length > 3;
-          const isExpanded = expanded[idx];
-          return (
-            <div className="work-card" key={idx}>
-              <div className="work-header">
-                <h3 className="work-company">{exp.company}</h3>
-                <span className="work-meta">{exp.role} <span>•</span> {exp.dates}</span>
+    <section id="workexp" className="py-24 bg-gradient-to-br from-background via-muted/20 to-background">
+      <div className="container">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-display font-bold mb-4">
+            Work <span className="hero-text">Experience</span>
+          </h2>
+          <div className="section-divider mb-6" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Professional journey showcasing growth, impact, and technical expertise 
+            across diverse projects and technologies.
+          </p>
+        </div>
+
+        {/* Experience Timeline */}
+        <div className="space-y-8">
+          {experiences.map((exp, index) => (
+            <Card 
+              key={index}
+              className="overflow-hidden card-hover bg-card/80 backdrop-blur-sm border border-border/50 p-8"
+            >
+              <div className="grid lg:grid-cols-3 gap-8">
+                {/* Company Info */}
+                <div className="lg:col-span-1">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="p-3 bg-primary/10 rounded-xl text-primary flex-shrink-0">
+                      {exp.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-card-foreground mb-1">
+                        {exp.position}
+                      </h3>
+                      <div className="flex items-center gap-2 text-primary font-semibold mb-2">
+                        <Building2 className="h-4 w-4" />
+                        {exp.company}
+                      </div>
+                      <div className="space-y-2 text-sm text-muted-foreground">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-4 w-4" />
+                          {exp.duration}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="h-4 w-4" />
+                          {exp.location} • {exp.type}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Key Metrics */}
+                  <div className="space-y-3">
+                    <h4 className="font-semibold text-card-foreground flex items-center gap-2">
+                      <TrendingUp className="h-4 w-4 text-primary" />
+                      Key Impact
+                    </h4>
+                    <div className="grid grid-cols-1 gap-3">
+                      {exp.highlights.map((highlight, idx) => (
+                        <div key={idx} className="bg-primary/5 rounded-lg p-3 text-center">
+                          <div className="text-2xl font-bold hero-text">
+                            {highlight.metric}
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            {highlight.label}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Achievements & Technologies */}
+                <div className="lg:col-span-2 space-y-6">
+                  {/* Achievements */}
+                  <div>
+                    <h4 className="font-semibold text-card-foreground mb-4">
+                      Key Achievements
+                    </h4>
+                    <ul className="space-y-3">
+                      {exp.achievements.map((achievement, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                          <span className="text-muted-foreground leading-relaxed">
+                            {achievement}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <h4 className="font-semibold text-card-foreground mb-4">
+                      Technologies & Tools
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, idx) => (
+                        <Badge 
+                          key={idx}
+                          className="bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-colors"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
-              <ul className="work-resp">
-                {getSnippet(exp.responsibilities, isExpanded).map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-              {isLong && !isExpanded && (
-                <button
-                  className="work-readmore"
-                  onClick={() => handleToggle(idx)}
-                >Read more</button>
-              )}
-              {isLong && isExpanded && (
-                <button
-                  className="work-readmore"
-                  onClick={() => handleToggle(idx)}
-                >Show less</button>
-              )}
-              <div className="work-tech">
-                <b>Technologies:</b> <span>{exp.technologies.join(", ")}</span>
+            </Card>
+          ))}
+        </div>
+
+        {/* Career Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { number: "4+", label: "Years Experience" },
+            { number: "2", label: "Companies" },
+            { number: "20+", label: "Projects Delivered" },
+            { number: "95%", label: "Client Satisfaction" }
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-4xl font-bold hero-text mb-2">
+                {stat.number}
+              </div>
+              <div className="text-muted-foreground">
+                {stat.label}
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
-      <style>{`
-        :root {
-          --bg-dark: #161e2e;
-          --bg-light: #f4f8fb;
-          --card-dark: #232f4e;
-          --card-light: #fafcff;
-          --accent-dark: #2196f3;
-          --accent-light: #1976d2;
-          --meta-dark: #8cbff2;
-          --meta-light: #2b5fa7;
-          --text-dark: #eef3fa;
-          --text-light: #193050;
-          --tech-dark: #b2d9fc;
-          --tech-light: #2263ae;
-          --shadow: 0 4px 18px rgba(61,79,126,0.14);
-          --radius: 18px;
-        }
-        [data-theme="dark"] .work-modern {
-          background: var(--bg-dark);
-          color: var(--text-dark);
-        }
-        [data-theme="light"] .work-modern {
-          background: var(--bg-light);
-          color: var(--text-light);
-        }
-        .work-modern {
-          min-height: 70vh;
-          padding: 56px 0 36px 0;
-          transition: background .3s, color .3s;
-        }
-        .work-title {
-          font-size: 2.2rem;
-          font-weight: 700;
-          text-align: center;
-          margin-bottom: 42px;
-          letter-spacing: .01em;
-        }
-        .work-title-accent {
-          color: var(--accent-dark);
-          transition: color .25s;
-        }
-        [data-theme="light"] .work-title-accent {
-          color: var(--accent-light);
-        }
-        .work-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 40px;
-          justify-content: center;
-        }
-        .work-card {
-          background: var(--card-dark);
-          border-radius: var(--radius);
-          min-width: 320px;
-          max-width: 430px;
-          box-shadow: var(--shadow);
-          padding: 28px 24px 16px 24px;
-          display: flex;
-          flex-direction: column;
-          margin-bottom: 14px;
-          transition: background .25s, box-shadow .25s;
-          border: 1.5px solid rgba(86,156,255,0.08);
-          position: relative;
-          overflow:hidden;
-        }
-        [data-theme="light"] .work-card {
-          background: var(--card-light);
-          color: var(--text-light);
-        }
-        .work-header {
-          margin-bottom: 18px;
-          display: flex;
-          flex-direction: column;
-        }
-        .work-company {
-          font-size: 1.18rem;
-          color: var(--accent-dark);
-          font-weight: 600;
-          margin: 0 0 3px 0;
-        }
-        [data-theme="light"] .work-company {
-          color: var(--accent-light);
-        }
-        .work-meta {
-          font-size: .99rem;
-          color: var(--meta-dark);
-          margin-bottom: 3px;
-        }
-        [data-theme="light"] .work-meta {
-          color: var(--meta-light);
-        }
-        .work-resp {
-          margin: 0 0 16px 0;
-          padding-left: 18px;
-          font-size: 1.03rem;
-          line-height: 1.7;
-        }
-        .work-readmore {
-          border: none;
-          background: linear-gradient(90deg,#2196f3 30%,#21cbf3 100%);
-          color: #fff;
-          font-size: .97rem;
-          font-weight: 450;
-          border-radius: 7px;
-          padding: 7px 16px;
-          box-shadow: 0 2px 10px rgba(21,100,180,0.11);
-          cursor: pointer;
-          margin-bottom: 2px;
-          margin-top: -6px;
-          transition: background .2s, color .2s;
-        }
-        .work-readmore:hover {
-          background: linear-gradient(90deg,#1976d2 30%,#0dcaf0 100%);
-        }
-        .work-tech {
-          font-size: .99rem;
-          word-break: break-word;
-          color: var(--tech-dark);
-          margin-top: 4px;
-        }
-        [data-theme="light"] .work-tech {
-          color: var(--tech-light);
-        }
-        @media (max-width: 990px) {
-          .work-list {
-            flex-direction: column;
-            align-items: center;
-          }
-          .work-card {
-            min-width: 96vw;
-            max-width: 98vw;
-          }
-        }
-      `}
-      </style>
     </section>
   );
 };

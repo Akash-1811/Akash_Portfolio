@@ -4,6 +4,12 @@ import ShantanuImg from "@/assets/Shantanu_Deshmukh.jpg";
 import SonyImage from "@/assets/sony.jpg";
 import vitusImage from "@/assets/vitus.jpg";
 import mervinImage from "@/assets/mervin.jpg";
+import harshalImage from "@/assets/mervin.jpg";
+import defaultImage from "@/assets/default.jpg";
+import defaultImageFem from "@/assets/defaultImageFem.jpg";
+
+
+
 
 
 
@@ -38,16 +44,16 @@ const TestimonialsSection = () => {
       rating: 5
     },
     {
-      name: "David Thompson",
-      role: "CTO, @Dataminsers",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      name: "Harshal Adarkar",
+      role: "Founder & Director, @ShellCode It Services",
+      image: defaultImage,
       content: "The custom software solution Akash built for us streamlined our entire workflow. His technical skills and problem-solving approach are truly impressive.",
       rating: 5
     },
     {
       name: "Lisa Wang",
       role: "Marketing Director, @SpeekAI",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
+      image: defaultImageFem,
       content: "Akash's generative AI chatbot revolutionized our customer service. The implementation was flawless and the results have been phenomenal for our business.",
       rating: 5
     },

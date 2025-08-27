@@ -9,7 +9,7 @@ import ReceptionistaImage7 from "@/assets/projects/Receptionista7.jpeg";
 import ASQSImage from "@/assets/projects/ASQS.jpeg";
 import ASQSImage2 from "@/assets/projects/ASQS2.png";
 import ASQSImage3 from "@/assets/projects/ASQS3.png";
-
+import ASQSImage4 from "@/assets/projects/ASQS4.png";
 
 import SpeakBookImage from "@/assets/projects/SpeakBook.png";
 import SpeakBookImage2 from "@/assets/projects/Speekbook2.png";
@@ -21,36 +21,43 @@ import { useState } from "react";
 const recentProjects = [
   {
     title: "Receptionista",
-    description: "Receptionista is an AI-powered receptionist system that automates call handling, client interactions, and call routing. It integrates OpenAI, ElevenLabs, Twillio and Telnyx to provide natural voice conversations with real-time responses. Built with Django, React, PostgreSQL, Celery, Redis, it offers scalability, analytics, and 24/7 intelligent reception services.",
+    description:
+      "Receptionista is an AI-powered receptionist system that automates call handling, client interactions, and call routing. It integrates OpenAI, ElevenLabs, Twillio and Telnyx to provide natural voice conversations with real-time responses. Built with Django, React, PostgreSQL, Celery, Redis, it offers scalability, analytics, and 24/7 intelligent reception services.",
     techStack: ["React", "Django", "Python", "Docker", "Open AI", "Gemini"],
-    images: [ReceptionistaImage, ReceptionistaImage2,ReceptionistaImage3,ReceptionistaImage4,ReceptionistaImage5,ReceptionistaImage6,ReceptionistaImage7],
-    link: "",
+    images: [
+      ReceptionistaImage,
+      ReceptionistaImage2,
+      ReceptionistaImage3,
+      ReceptionistaImage4,
+      ReceptionistaImage5,
+      ReceptionistaImage6,
+      ReceptionistaImage7,
+    ],
+    link: "", // even if empty, View Project will show
   },
   {
     title: "SpeakBook",
-    description: "SpeakBook is a Django-based real-time speech-to-text transcription tool with Deepgram integration, featuring speaker diarization, live transcript display, file uploads, session management, and REST/WebSocket APIs for seamless integration.",
+    description:
+      "SpeakBook is a Django-based real-time speech-to-text transcription tool with Deepgram integration, featuring speaker diarization, live transcript display, file uploads, session management, and REST/WebSocket APIs for seamless integration.",
     techStack: ["Django", "DeepGram", "React", "WebSockets", "TTS", "STT"],
-    images: [SpeakBookImage,SpeakBookImage2,SpeakBookImage3],
-    link: "https://yourdemo.com/audio-transcription",
+    images: [SpeakBookImage, SpeakBookImage2, SpeakBookImage3],
+    link: "",
   },
   {
     title: "American Skyline Quality Standards",
-    description: "Developed a comprehensive web application aligned with American Quality Certification Standards, featuring an advanced analytics dashboard, client and partner management modules, and standards compliance management.",
+    description:
+      "Developed a comprehensive web application aligned with American Quality Certification Standards, featuring an advanced analytics dashboard, client and partner management modules, and standards compliance management.",
     techStack: ["Django", "AWS", "WebSockets", "TensorFlow"],
-    images: [ASQSImage,ASQSImage2,ASQSImage3],
+    images: [ASQSImage, ASQSImage4, ASQSImage2, ASQSImage3],
     link: "https://asqs-client.onrender.com/",
   },
 ];
 
-const ProjectImageCarousel = ({ images, title }: { images: string[], title: string }) => {
+const ProjectImageCarousel = ({ images, title }: { images: string[]; title: string }) => {
   if (images.length === 1) {
     return (
       <div className="relative group">
-        <img
-          src={images[0]}
-          alt={title}
-          className="rounded-t-2xl w-full h-48 object-cover"
-        />
+        <img src={images[0]} alt={title} className="rounded-t-2xl w-full h-48 object-cover" />
         <button
           className="absolute top-3 right-3 px-3 py-1 bg-black/60 rounded text-white text-xs font-semibold opacity-0 group-hover:opacity-100 transition"
           onClick={() => window.open(images[0], "_blank")}
@@ -105,7 +112,7 @@ const RecentProjects = () => (
         </h2>
         <div className="section-divider mb-4" />
         <p className="text-muted-foreground mb-8 text-lg">
-          Highlighted professional and personal projects demonstrating expertise, problem-solving, and tech stack versatility.
+          Highlighted projects demonstrating expertise, problem-solving, and versatility across different technologies.
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -118,20 +125,14 @@ const RecentProjects = () => (
             <div className="flex-1 p-6 flex flex-col">
               <h3 className="text-2xl font-bold mb-2 text-card-foreground">{proj.title}</h3>
               <p className="text-base text-muted-foreground mb-6">{proj.description}</p>
-              {proj.link ? (
-                <a
-                  href={proj.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-auto w-fit px-4 py-2 rounded-lg bg-primary text-white font-semibold shadow hover:bg-primary/80 transition"
-                >
-                  View Project
-                </a>
-              ) : (
-                <span className="mt-auto w-fit px-4 py-2 rounded-lg bg-zinc-700 text-muted-foreground font-semibold shadow cursor-not-allowed">
-                  Private Project
-                </span>
-              )}
+              <a
+                href={proj.link || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto w-fit px-4 py-2 rounded-lg bg-primary text-white font-semibold shadow hover:bg-primary/80 transition"
+              >
+                View Project
+              </a>
             </div>
           </div>
         ))}

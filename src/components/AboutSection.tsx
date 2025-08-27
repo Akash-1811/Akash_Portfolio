@@ -14,7 +14,7 @@ const AboutSection = () => {
   const achievements = [
     {
       icon: <Award className="h-6 w-6" />,
-      title: "50+ Projects",
+      title: "20+ Projects",
       description: "Successfully delivered across various domains"
     },
     {

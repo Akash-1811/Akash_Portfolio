@@ -134,9 +134,9 @@ const SkillsSection = () => {
         {/* Additional Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { number: "50+", label: "Projects Completed" },
+            { number: "20+", label: "Projects Completed" },
             { number: "4+", label: "Years Experience" },
-            { number: "25+", label: "Happy Clients" },
+            { number: "15+", label: "Happy Clients" },
             { number: "10+", label: "Technologies Mastered" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
