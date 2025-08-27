@@ -44,7 +44,7 @@ const Navigation = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('home')}
-            className="text-2xl font-bold hero-text hover:scale-105 transition-transform"
+            className="text-xl md:text-2xl font-bold hero-text hover:scale-105 transition-transform flex-shrink-0"
           >
             Akash Yadav
           </button>
@@ -88,23 +88,30 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border/50">
-            <div className="space-y-4">
+          <div className="md:hidden py-4 border-t border-border/50 bg-background/95 backdrop-blur-md">
+            <div className="space-y-2">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-all"
+                  className="block w-full text-left px-4 py-3 text-foreground hover:text-primary hover:bg-primary/10 rounded-lg transition-all font-medium"
                 >
                   {item.label}
                 </button>
               ))}
-              <div className="px-4 pt-2">
+              <div className="px-4 pt-4 space-y-3">
                 <Button
                   onClick={() => scrollToSection('contact')}
                   className="w-full bg-gradient-primary text-white hover:shadow-primary transition-all duration-300"
                 >
                   Get In Touch
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full border-primary/20 hover:bg-primary/5"
+                  onClick={() => window.open('/resume.pdf', '_blank')}
+                >
+                  Download Resume
                 </Button>
               </div>
             </div>

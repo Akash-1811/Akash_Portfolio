@@ -3,6 +3,7 @@ import { Star, Quote } from "lucide-react";
 import ShantanuImg from "@/assets/Shantanu_Deshmukh.jpg";
 import SonyImage from "@/assets/sony.jpg";
 import vitusImage from "@/assets/vitus.jpg";
+import mervinImage from "@/assets/mervin.jpg";
 
 
 
@@ -30,26 +31,27 @@ const TestimonialsSection = () => {
       rating: 5
     },
     {
+      name: "Mervin Agera",
+      role: "Founder @Digilligent",
+      image: mervinImage,
+      content: "Akash’s insights brought clarity to complex data and supported important decisions. His strong analytical mindset and ability to present information visually are truly impressive.",
+      rating: 5
+    },
+    {
       name: "David Thompson",
-      role: "CTO, DataFlow Systems",
+      role: "CTO, @Dataminsers",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
       content: "The custom software solution Akash built for us streamlined our entire workflow. His technical skills and problem-solving approach are truly impressive.",
       rating: 5
     },
     {
       name: "Lisa Wang",
-      role: "Marketing Director, GrowthCo",
+      role: "Marketing Director, @SpeekAI",
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face",
       content: "Akash's generative AI chatbot revolutionized our customer service. The implementation was flawless and the results have been phenomenal for our business.",
       rating: 5
     },
-    {
-      name: "James Miller",
-      role: "Operations Manager, ScaleTech",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
-      content: "The data science insights Akash provided helped us make critical business decisions. His analytical approach and visualization skills are top-notch.",
-      rating: 5
-    }
+    
   ];
 
   const renderStars = (rating: number) => {
