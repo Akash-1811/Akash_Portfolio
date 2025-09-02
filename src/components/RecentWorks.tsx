@@ -104,7 +104,7 @@ const ProjectImageCarousel = ({ images, title }: { images: string[]; title: stri
 };
 
 const RecentProjects = () => (
-  <section className="py-24 bg-gradient-to-br from-background via-muted/20 to-background">
+  <section className="py-16 bg-gradient-to-br from-background via-muted/20 to-background">
     <div className="container">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-3">

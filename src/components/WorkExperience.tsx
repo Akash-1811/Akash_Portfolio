@@ -88,7 +88,7 @@ const WorkExperience = () => {
   ];
 
   return (
-    <section id="workexp" className="py-24 bg-gradient-to-br from-background via-muted/20 to-background">
+    <section id="workexp" className="py-16 bg-gradient-to-br from-background via-muted/20 to-background">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-16">

@@ -52,7 +52,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-background to-muted/20">
+    <section id="contact" className="py-16 bg-gradient-to-br from-background to-muted/20">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-16">

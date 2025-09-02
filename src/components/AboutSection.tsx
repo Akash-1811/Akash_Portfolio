@@ -39,7 +39,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-gradient-secondary">
+    <section id="about" className="py-16 bg-gradient-secondary">
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-16">

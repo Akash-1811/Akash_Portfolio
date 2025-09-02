@@ -68,7 +68,7 @@ const ServicesSection = () => {
   return (
     <section 
       id="services" 
-      className="py-24 relative overflow-hidden"
+      className="py-16 relative overflow-hidden"
       style={{ 
         backgroundImage: `url(${servicesBackground})`,
         backgroundAttachment: 'fixed',
