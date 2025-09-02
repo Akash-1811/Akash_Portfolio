@@ -57,9 +57,9 @@ const AboutSection = () => {
           {/* Image Side */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl">
-              <img 
-                src={aboutMeImage} 
-                alt="Akash Yadav - Developer"
+              <img
+                src={aboutMeImage}
+                alt="Akash Yadav - Professional Software Developer specializing in web development, AI/ML, and data science"
                 className="w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-accent opacity-20" />

@@ -7,10 +7,12 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import RecentWorks from "@/components/RecentWorks"; // 👈 Import new component
 import WorkExperience from "@/components/WorkExperience";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <SEO />
       <Navigation />
       <div id="home">
         <HeroSection />

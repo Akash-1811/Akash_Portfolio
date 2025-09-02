@@ -101,9 +101,9 @@ const ServicesSection = () => {
             >
               {/* Service Image */}
               <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
+                <img
+                  src={service.image}
+                  alt={`${service.title} - Professional software development service by Akash Yadav`}
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-primary opacity-20" />
