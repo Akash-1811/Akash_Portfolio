@@ -9,6 +9,8 @@ import {
   Lightbulb
 } from "lucide-react";
 import aboutMeImage from "@/assets/profile.jpeg";
+import aboutMeImage2 from "@/assets/MyPICTURE.png";
+
 
 const AboutSection = () => {
   const achievements = [
@@ -58,7 +60,7 @@ const AboutSection = () => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl">
               <img
-                src={aboutMeImage}
+                src={aboutMeImage2}
                 alt="Akash Yadav - Professional Software Developer specializing in web development, AI/ML, and data science"
                 className="w-full h-[500px] object-cover"
               />
