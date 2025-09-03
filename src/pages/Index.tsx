@@ -7,6 +7,8 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import RecentWorks from "@/components/RecentWorks"; // 👈 Import new component
 import WorkExperience from "@/components/WorkExperience";
+import BeyondCodeSection from "@/components/BeyondCodeSection";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -18,6 +20,7 @@ const Index = () => {
         <HeroSection />
       </div>
       <AboutSection />
+      <BeyondCodeSection />
       <ServicesSection />
       <div id="skills">
         <SkillsSection />
@@ -33,6 +36,9 @@ const Index = () => {
 
       <TestimonialsSection />
       <ContactSection />
+
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
     </main>
   );
 };

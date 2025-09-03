@@ -263,4 +263,64 @@
   .stagger-delay-2 { animation-delay: 0.2s; }
   .stagger-delay-3 { animation-delay: 0.3s; }
   .stagger-delay-4 { animation-delay: 0.4s; }
+
+  /* 3D Transform Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .translate-z-12 {
+    transform: translateZ(12px);
+  }
+
+  .-rotate-y-12 {
+    transform: rotateY(-12deg);
+  }
+
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Enhanced Float Animation */
+  .animate-float {
+    animation: enhancedFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes enhancedFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.7;
+    }
+    33% {
+      transform: translateY(-20px) rotate(120deg);
+      opacity: 1;
+    }
+    66% {
+      transform: translateY(-10px) rotate(240deg);
+      opacity: 0.8;
+    }
+  }
+
+  /* Glowing Pulse Effect */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.3);
+    }
+  }
 }
