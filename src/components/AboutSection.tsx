@@ -8,7 +8,6 @@ import {
   Users,
   Lightbulb
 } from "lucide-react";
-import aboutMeImage from "@/assets/profile.jpeg";
 import aboutMeImage2 from "@/assets/MyPICTURE.png";
 
 
