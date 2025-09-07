@@ -16,15 +16,25 @@ export const ThemeToggle = () => {
   }
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="w-9 h-9 rounded-full hover:bg-accent transition-colors"
-    >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+    <div className="relative">
+      {/* Reduced glow container */}
+      <div className="absolute inset-0 rounded-full animate-glow-subtle blur-sm scale-110 bg-primary/20"></div>
+
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        className="w-9 h-9 rounded-full transition-all duration-300 bg-primary/5 hover:bg-primary/15 hover:scale-105 relative z-10 flex items-center justify-center"
+      >
+        {/* Subtle inner glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-secondary/15 to-primary/15 rounded-full animate-pulse opacity-40"></div>
+
+        <div className="relative flex items-center justify-center">
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0 text-primary absolute" />
+          <Moon className="h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100 text-primary absolute" />
+        </div>
+        <span className="sr-only">Toggle theme</span>
+      </Button>
+    </div>
   );
 };

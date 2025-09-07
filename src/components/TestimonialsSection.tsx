@@ -5,6 +5,7 @@ import SonyImage from "@/assets/sony.jpg";
 import vitusImage from "@/assets/vitus.jpg";
 import mervinImage from "@/assets/mervin.jpg";
 import harshalImage from "@/assets/mervin.jpg";
+import vivekImage from "@/assets/Vivek.jpg";
 import defaultImage from "@/assets/default.jpg";
 import defaultImageFem from "@/assets/defaultImageFem.jpg";
 
@@ -37,26 +38,27 @@ const TestimonialsSection = () => {
       rating: 5
     },
     {
+      name: "Vivek Umrao",
+      role: "Founder@, @Aadhaar Capital",
+      image: vivekImage,
+      content: "Akash helped me build a website for my finance and wealth management company, Aadhaar Capital. The design is excellent, with features like live market updates, an SIP calculator, and more. Just amazing!, keep up  the good work..",
+      rating: 5
+    },
+    {
       name: "Mervin Agera",
       role: "Founder @Digilligent",
       image: mervinImage,
-      content: "Akash’s insights brought clarity to complex data and supported important decisions. His strong analytical mindset and ability to present information visually are truly impressive.",
+      content: "Akash has a strong knack for turning complex data into clear, actionable insights. His analytical mindset and the way he presents information visually made it much easier for us to make important decisions. We genuinely value his contribution.",
       rating: 5
     },
     {
       name: "Harshal Adarkar",
       role: "Founder & Director, @ShellCode It Services",
       image: defaultImage,
-      content: "The custom software solution Akash built for us streamlined our entire workflow. His technical skills and problem-solving approach are truly impressive.",
+      content: "Working with Akash has been a game-changer for us. The custom software he built didn’t just streamline our workflow—it made day-to-day tasks so much easier. He really listened to our needs, came up with smart solutions, and delivered more than we expected. Truly grateful for his expertise and dedication.",
       rating: 5
     },
-    {
-      name: "Lisa Wang",
-      role: "Marketing Director, @SpeekAI",
-      image: defaultImageFem,
-      content: "Akash's generative AI chatbot revolutionized our customer service. The implementation was flawless and the results have been phenomenal for our business.",
-      rating: 5
-    },
+    ,
     
   ];
 
