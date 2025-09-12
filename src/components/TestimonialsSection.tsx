@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
     },
     {
       name: "Vivek Umrao",
-      role: "Founder@, @Aadhaar Capital",
+      role: "Founder @Aadhaar Capital",
       image: vivekImage,
       content: "Akash helped me build a website for my finance and wealth management company, Aadhaar Capital. The design is excellent, with features like live market updates, an SIP calculator, and more. Just amazing!, keep up  the good work..",
       rating: 5
