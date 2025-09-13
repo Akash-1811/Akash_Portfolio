@@ -9,6 +9,7 @@ import RecentWorks from "@/components/RecentWorks"; // 👈 Import new component
 import WorkExperience from "@/components/WorkExperience";
 import BeyondCodeSection from "@/components/BeyondCodeSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import GameModal from "@/components/GameModal";
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -35,10 +36,15 @@ const Index = () => {
       </div>
 
       <TestimonialsSection />
-      <ContactSection />
+      <div id="contact">
+        <ContactSection />
+      </div>
 
       {/* WhatsApp Floating Button */}
       <WhatsAppButton />
+
+      {/* Game Modal */}
+      <GameModal />
     </main>
   );
 };
