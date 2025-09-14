@@ -13,42 +13,47 @@ import {
 } from "lucide-react";
 import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from "emailjs-com";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .sendForm(
-        "service_jto4915",   // replace with EmailJS Service ID
-        "template_rok5moa",  // replace with EmailJS Template ID
-        formRef.current!,
-        "8vvIoQ8LbZDTiNxLY"    // replace with EmailJS Public Key
-      )
-      .then(() => {
+    try {
+      // Get form data
+      const formData = new FormData(formRef.current!);
+
+      // Send to your custom API
+      const response = await fetch('https://aadhar-capital-backend.vercel.app/submit-form-akash', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
         toast({
           title: "Message Sent ✅",
           description: "Thanks for reaching out! I'll get back to you soon.",
         });
         formRef.current?.reset();
-      })
-      .catch((error) => {
-        toast({
-          title: "Failed to send ❌",
-          description: "Something went wrong. Please try again later.",
-          variant: "destructive",
-        });
-        console.error("EmailJS Error:", error);
-      })
-      .finally(() => {
-        setLoading(false);
+      } else {
+        throw new Error(result.message || 'Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send ❌",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
       });
+      console.error("API Error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -168,7 +173,7 @@ const ContactSection = () => {
                   </label>
                   <Input
                     id="name"
-                    name="user_name"
+                    name="name"
                     type="text"
                     required
                     placeholder="John Doe"
@@ -181,10 +186,37 @@ const ContactSection = () => {
                   </label>
                   <Input
                     id="email"
-                    name="user_email"
+                    name="email"
                     type="email"
                     required
                     placeholder="john@example.com"
+                    className="border-border/50 focus:border-primary"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    Phone Number
+                  </label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+91 9876543210"
+                    className="border-border/50 focus:border-primary"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium mb-2">
+                    Company (Optional)
+                  </label>
+                  <Input
+                    id="company"
+                    name="company"
+                    type="text"
+                    placeholder="Your Company"
                     className="border-border/50 focus:border-primary"
                   />
                 </div>
