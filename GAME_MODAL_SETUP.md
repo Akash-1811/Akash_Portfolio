@@ -40,7 +40,7 @@
 Your portfolio website now includes a comprehensive game modal with the following features:
 
 ### 🚦 Auto-Popup System
-- **Trigger**: Automatically opens 5 seconds after page load
+- **Trigger**: Automatically opens 16 seconds after page load
 - **Animation**: Smooth scale + fade transition using Framer Motion
 - **Positioning**: Centered modal with backdrop blur
 
@@ -94,7 +94,7 @@ Your portfolio website now includes a comprehensive game modal with the followin
 ## 🎮 How to Test
 
 1. **Visit your website**: http://localhost:8081/
-2. **Wait 5 seconds** - the modal will auto-open
+2. **Wait 16 seconds** - the modal will auto-open
 3. **Try each game**:
    - Click "Tic Tac Toe" and play against the AI
    - Click "Trivia Quiz" and answer the questions
@@ -106,7 +106,7 @@ Your portfolio website now includes a comprehensive game modal with the followin
 ### Change Auto-Open Timer
 Edit `src/components/GameModal.config.ts`:
 ```typescript
-AUTO_OPEN_DELAY: 3000, // 3 seconds instead of 5
+AUTO_OPEN_DELAY: 3000, // 3 seconds instead of 16
 ```
 
 ### Add New Trivia Questions

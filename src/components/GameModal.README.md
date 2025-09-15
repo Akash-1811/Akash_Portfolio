@@ -5,7 +5,7 @@ A comprehensive React component for your portfolio website that includes an inte
 ## Features
 
 ### 🚦 Auto-Popup Trigger
-- Automatically opens after 5 seconds of page load
+- Automatically opens after 16 seconds of page load
 - Smooth scale + fade animation using Framer Motion
 - Centered modal with backdrop blur
 
@@ -64,7 +64,7 @@ Edit line 52 in `GameModal.tsx`:
 ```tsx
 const timer = setTimeout(() => {
   setGameState(prev => ({ ...prev, isOpen: true }));
-}, 5000); // Change 5000 to desired milliseconds
+}, 16000); // Change 16000 to desired milliseconds
 ```
 
 ### Adding New Trivia Questions

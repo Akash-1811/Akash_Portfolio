@@ -3,7 +3,7 @@
 
 export const GAME_CONFIG = {
   // Auto-open timer (in milliseconds)
-  AUTO_OPEN_DELAY: 5000, // 5 seconds
+  AUTO_OPEN_DELAY: 16000, // 16 seconds
 
   // Memory game settings
   MEMORY_GAME: {

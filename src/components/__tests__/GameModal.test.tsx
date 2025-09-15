@@ -33,14 +33,14 @@ describe('GameModal', () => {
     vi.useRealTimers();
   });
 
-  it('should auto-open after 5 seconds', async () => {
+  it('should auto-open after 16 seconds', async () => {
     render(<GameModal />);
-    
+
     // Modal should not be visible initially
     expect(screen.queryByText(/Stop scrolling/)).not.toBeInTheDocument();
-    
-    // Fast-forward time by 5 seconds
-    vi.advanceTimersByTime(5000);
+
+    // Fast-forward time by 16 seconds
+    vi.advanceTimersByTime(16000);
     
     // Modal should now be visible
     await waitFor(() => {
