@@ -49,7 +49,7 @@ const recentProjects = [
       "Aadhaar Capital is a financial services platform that simplifies wealth management with intelligent automation and personalized recommendations. It offers smart investment strategies, insurance planning, retirement solutions, real-time market insights, and risk assessment tools—delivering a seamless experience for individuals, families, and advisors.",
     techStack: ["React", "Fast Api", "MongoDB", "AI/ML", "FinTech APIs", "Analytics"],
     images: [aadharCapital,aadharCapital2,aadharCapital3,aadharCapital4,aadharCapital5], // Using placeholder image for now
-    link: "https://aadhaar-capital.vercel.app/",
+    link: "https://www.aadhaarcapital.com/",
   },
   {
     title: "SpeakBook",
