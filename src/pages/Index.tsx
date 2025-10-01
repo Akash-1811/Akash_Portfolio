@@ -14,6 +14,7 @@ import ChatbotModal from "@/components/ChatbotModal"; // 👈 New AI Chatbot
 import SEO from "@/components/SEO";
 
 const Index = () => {
+  // Updated: Force deployment refresh - Oct 2024
   return (
     <main className="min-h-screen">
       <SEO />
