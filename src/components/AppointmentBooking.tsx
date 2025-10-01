@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import SchedulingModal from './SchedulingModal';
+import SchedulingModalSimple from './SchedulingModalSimple';
 
 interface AppointmentBookingProps {
   className?: string;
@@ -140,7 +140,7 @@ const AppointmentBooking: React.FC<AppointmentBookingProps> = ({
       </div>
 
       {/* Scheduling Modal */}
-      <SchedulingModal 
+      <SchedulingModalSimple 
         isOpen={isSchedulingOpen} 
         onClose={() => setIsSchedulingOpen(false)} 
       />

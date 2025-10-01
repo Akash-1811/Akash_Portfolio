@@ -4,7 +4,7 @@ import { X, Send, Mic, MicOff, Volume2, VolumeX, MessageCircle, Sparkles, Bot, Z
 import { Button } from '@/components/ui/button';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { CHATBOT_CONFIG, ChatMessage, ChatbotState, getRandomItem } from './ChatbotModal.config';
-import SchedulingModal from './SchedulingModal';
+import SchedulingModalSimple from './SchedulingModalSimple';
 import botImage from '../assets/bot1.svg';
 
 // Initialize Gemini AI with error handling
@@ -444,7 +444,7 @@ Please provide a helpful and engaging response about our software development se
   return (
     <>
       <PermanentChatbotButton onOpenModal={openModal} />
-      <SchedulingModal 
+      <SchedulingModalSimple 
         isOpen={isSchedulingOpen} 
         onClose={() => setIsSchedulingOpen(false)} 
       />

@@ -41,18 +41,37 @@ const SchedulingModalSimple: React.FC<SchedulingModalSimpleProps> = ({ isOpen, o
     }
   ];
 
-  const availableDates = [
-    '2024-01-15',
-    '2024-01-16', 
-    '2024-01-17',
-    '2024-01-18',
-    '2024-01-19'
-  ];
+  // Generate next 7 business days (excluding weekends)
+  const getAvailableDates = () => {
+    const dates = [];
+    const today = new Date();
+    let count = 0;
+    let current = 1; // Start from tomorrow
+    
+    while (count < 7) {
+      const date = new Date(today);
+      date.setDate(today.getDate() + current);
+      
+      // Skip weekends (Saturday = 6, Sunday = 0)
+      if (date.getDay() !== 0 && date.getDay() !== 6) {
+        dates.push(date.toISOString().split('T')[0]);
+        count++;
+      }
+      current++;
+    }
+    
+    return dates;
+  };
+
+  const availableDates = getAvailableDates();
 
   const availableTimes = [
     '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
     '14:00', '14:30', '15:00', '15:30', '16:00', '16:30'
   ];
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string>('');
 
   const resetModal = () => {
     setStep('type');
@@ -60,6 +79,8 @@ const SchedulingModalSimple: React.FC<SchedulingModalSimpleProps> = ({ isOpen, o
     setSelectedDate('');
     setSelectedTime('');
     setUserDetails({ name: '', email: '', phone: '', description: '' });
+    setLoading(false);
+    setError('');
   };
 
   const handleClose = () => {
@@ -67,18 +88,68 @@ const SchedulingModalSimple: React.FC<SchedulingModalSimpleProps> = ({ isOpen, o
     onClose();
   };
 
-  const handleSubmit = () => {
-    // For now, just show confirmation
-    // In real implementation, this would send email or create calendar event
-    setStep('confirmation');
+  const handleSubmit = async () => {
+    setLoading(true);
+    setError('');
     
-    // You can add email sending logic here
-    console.log('Appointment request:', {
-      type: selectedType,
-      date: selectedDate,
-      time: selectedTime,
-      userDetails
-    });
+    try {
+      const appointmentType = appointmentTypes.find(t => t.id === selectedType);
+      
+      // Format appointment details for email
+      const appointmentDetails = {
+        type: appointmentType?.name || 'Consultation',
+        clientName: userDetails.name,
+        clientEmail: userDetails.email,
+        clientPhone: userDetails.phone || 'Not provided',
+        description: userDetails.description || 'No additional details provided',
+        appointmentDate: formatDate(selectedDate),
+        appointmentTime: selectedTime,
+        duration: appointmentType?.duration || 30
+      };
+
+      // Prepare form data for the email API
+      const formData = new FormData();
+      formData.append('name', userDetails.name);
+      formData.append('email', userDetails.email);
+      formData.append('phone', userDetails.phone || '');
+      formData.append('company', 'Appointment Booking');
+      formData.append('subject', `New Appointment Request - ${appointmentDetails.type}`);
+      formData.append('message', `
+New appointment request details:
+
+🗓️ Type: ${appointmentDetails.type}
+👤 Client: ${appointmentDetails.clientName}
+📧 Email: ${appointmentDetails.clientEmail}
+📱 Phone: ${appointmentDetails.clientPhone}
+📅 Date: ${appointmentDetails.appointmentDate}
+⏰ Time: ${appointmentDetails.appointmentTime}
+⏱️ Duration: ${appointmentDetails.duration} minutes
+
+📝 Project Description:
+${appointmentDetails.description}
+
+---
+This is an automated message from the appointment booking system.
+Please confirm this appointment by contacting the client directly.
+      `);
+
+      // Send email notification using your existing API
+      const response = await fetch('https://aadhar-capital-backend.vercel.app/submit-form-akash', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStep('confirmation');
+      } else {
+        throw new Error('Failed to send appointment request');
+      }
+    } catch (error) {
+      console.error('Error booking appointment:', error);
+      setError('Failed to send appointment request. Please try contacting directly via email or phone.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const formatDate = (dateString: string) => {
@@ -128,6 +199,12 @@ const SchedulingModalSimple: React.FC<SchedulingModalSimpleProps> = ({ isOpen, o
 
             {/* Content */}
             <div className="p-6 overflow-y-auto max-h-[calc(90vh-140px)]">
+              {error && (
+                <div className="mb-4 p-3 bg-red-100 dark:bg-red-900/20 border border-red-300 dark:border-red-800 rounded-lg flex items-center space-x-2">
+                  <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
+                  <span className="text-red-700 dark:text-red-400 text-sm">{error}</span>
+                </div>
+              )}
               {/* Step 1: Select Appointment Type */}
               {step === 'type' && (
                 <motion.div
@@ -331,9 +408,16 @@ const SchedulingModalSimple: React.FC<SchedulingModalSimpleProps> = ({ isOpen, o
                   <Button
                     className="w-full mt-6"
                     onClick={handleSubmit}
-                    disabled={!userDetails.name || !userDetails.email}
+                    disabled={!userDetails.name || !userDetails.email || loading}
                   >
-                    Schedule Appointment
+                    {loading ? (
+                      <div className="flex items-center space-x-2">
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                        <span>Sending Request...</span>
+                      </div>
+                    ) : (
+                      'Schedule Appointment'
+                    )}
                   </Button>
                 </motion.div>
               )}
@@ -351,11 +435,19 @@ const SchedulingModalSimple: React.FC<SchedulingModalSimpleProps> = ({ isOpen, o
 
                   <div>
                     <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                      Request Sent!
+                      Request Sent Successfully!
                     </h3>
-                    <p className="text-slate-600 dark:text-slate-400">
-                      Your appointment request has been submitted. Akash will contact you soon to confirm the details.
+                    <p className="text-slate-600 dark:text-slate-400 mb-4">
+                      Your appointment request has been submitted successfully. Akash will contact you within 24 hours to confirm the details and send you the meeting link.
                     </p>
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4">
+                      <p className="text-sm text-blue-800 dark:text-blue-200">
+                        <strong>Next Steps:</strong><br />
+                        • You'll receive a confirmation email shortly<br />
+                        • Akash will reach out to finalize the meeting details<br />
+                        • A calendar invite will be sent before the meeting
+                      </p>
+                    </div>
                   </div>
 
                   {selectedDate && selectedTime && (
