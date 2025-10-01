@@ -9,7 +9,8 @@ import RecentWorks from "@/components/RecentWorks"; // 👈 Import new component
 import WorkExperience from "@/components/WorkExperience";
 import BeyondCodeSection from "@/components/BeyondCodeSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import GameModal from "@/components/GameModal";
+// import GameModal from "@/components/GameModal"; // 👈 Hidden but kept for future use
+import ChatbotModal from "@/components/ChatbotModal"; // 👈 New AI Chatbot
 import SEO from "@/components/SEO";
 
 const Index = () => {
@@ -43,8 +44,11 @@ const Index = () => {
       {/* WhatsApp Floating Button */}
       <WhatsAppButton />
 
-      {/* Game Modal */}
-      <GameModal />
+      {/* AI Chatbot Modal - Replaced GameModal */}
+      <ChatbotModal />
+
+      {/* Game Modal - Hidden but kept for future use */}
+      {/* <GameModal /> */}
     </main>
   );
 };

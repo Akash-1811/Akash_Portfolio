@@ -65,7 +65,7 @@ const recentProjects = [
       "Developed a comprehensive web application aligned with American Quality Certification Standards, featuring an advanced analytics dashboard, client and partner management modules, and standards compliance management.",
     techStack: ["Django", "AWS", "WebSockets", "TensorFlow"],
     images: [ASQSImage, ASQSImage4, ASQSImage2, ASQSImage3],
-    link: "https://asqs-client.onrender.com/",
+    link: "https://www.asqscertification.com/",
   },
   ,
 ];
