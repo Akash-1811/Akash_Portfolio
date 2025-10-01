@@ -8,10 +8,14 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:production": "vite build --mode production",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build:production",
+    "deploy": "gh-pages -d dist",
+    "deploy:secure": "npm run predeploy:secure && npm run deploy && npm run postdeploy:secure",
+    "predeploy:secure": "if exist .env move .env .env.local.backup && npm run build",
+    "postdeploy:secure": "if exist .env.local.backup move .env.local.backup .env"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
