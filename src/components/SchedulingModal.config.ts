@@ -1,5 +1,19 @@
 // Google Calendar Scheduling Configuration
+
+// Check if we have the required environment variables
+const hasValidConfig = () => {
+  const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  const clientSecret = import.meta.env.VITE_GOOGLE_CLIENT_SECRET;
+  
+  return apiKey && clientId && clientSecret && 
+         apiKey !== '' && clientId !== '' && clientSecret !== '';
+};
+
 export const SCHEDULING_CONFIG = {
+  // Feature availability check
+  ENABLED: hasValidConfig(),
+  
   // Google Calendar API Configuration
   GOOGLE_CALENDAR: {
     // Your Google Calendar API key

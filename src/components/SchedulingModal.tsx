@@ -11,6 +11,49 @@ interface SchedulingModalProps {
 }
 
 const SchedulingModal: React.FC<SchedulingModalProps> = ({ isOpen, onClose }) => {
+  // Check if scheduling is properly configured
+  if (!SCHEDULING_CONFIG.ENABLED) {
+    // Fallback to simple contact form if secrets not configured
+    return (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          onClick={(e) => e.stopPropagation()}
+          className="bg-white dark:bg-slate-900 rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-hidden"
+        >
+          <div className="p-6 text-center">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">
+              Scheduling Temporarily Unavailable
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400 mb-6">
+              Please contact me directly to schedule an appointment:
+            </p>
+            <div className="space-y-3 text-left">
+              <div className="flex items-center space-x-3">
+                <Mail className="h-5 w-5 text-blue-500" />
+                <span className="text-slate-900 dark:text-white">developerakashcontact@developerakash.com</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-5 w-5 text-green-500" />
+                <span className="text-slate-900 dark:text-white">+91 9022445161</span>
+              </div>
+            </div>
+            <Button className="w-full mt-6" onClick={onClose}>
+              Close
+            </Button>
+          </div>
+        </motion.div>
+      </motion.div>
+    );
+  }
   const { toast } = useToast();
   const [step, setStep] = useState<'type' | 'datetime' | 'details' | 'confirmation'>('type');
   const [selectedType, setSelectedType] = useState<string>('');
