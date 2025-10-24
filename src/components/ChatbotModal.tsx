@@ -455,17 +455,17 @@ Please provide a helpful and engaging response about our software development se
             animate={{ x: 0, opacity: 1, scale: 1 }}
             exit={{ x: 400, opacity: 0, scale: 0.8 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-24 right-6 z-50 w-96 h-[500px]"
+            className="fixed inset-x-4 bottom-20 sm:bottom-24 sm:right-6 sm:left-auto z-50 sm:w-96 h-[72vh] sm:h-[550px]"
           >
             <div
-              className="relative w-full h-full backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+              className="relative w-full h-full backdrop-blur-xl border border-slate-700/50 rounded-2xl sm:rounded-2xl shadow-2xl overflow-hidden flex flex-col"
               style={{
                 background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)',
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(148, 163, 184, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
               }}
             >
               {/* Professional Header */}
-              <div className="relative p-4 border-b border-slate-700/50" style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
+              <div className="relative p-2.5 sm:p-4 border-b border-slate-700/50" style={{ backgroundColor: 'rgba(15, 23, 42, 0.8)' }}>
                 {/* Circuit pattern background */}
                 <div className="absolute inset-0 opacity-10">
                   <svg className="w-full h-full" viewBox="0 0 100 20">
@@ -479,64 +479,64 @@ Please provide a helpful and engaging response about our software development se
                 </div>
 
                 <div className="relative flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-2 sm:space-x-3">
                     <div className="relative">
                       {/* Robot Avatar */}
-                      <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center border border-indigo-400/50 shadow-lg">
-                        <Bot className="h-6 w-6 text-white" />
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center border border-indigo-400/50 shadow-lg">
+                        <Bot className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                         {/* Glowing eyes */}
-                        <div className="absolute top-2 left-3 w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
-                        <div className="absolute top-2 right-3 w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
+                        <div className="absolute top-1.5 left-2.5 sm:top-2 sm:left-3 w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
+                        <div className="absolute top-1.5 right-2.5 sm:top-2 sm:right-3 w-1 h-1 bg-cyan-400 rounded-full animate-pulse"></div>
                       </div>
                       {/* Status indicator */}
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-slate-900 flex items-center justify-center">
-                        <div className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></div>
+                      <div className="absolute -bottom-0.5 -right-0.5 sm:-bottom-1 sm:-right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 bg-green-400 rounded-full border-2 border-slate-900 flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-300 rounded-full animate-pulse"></div>
                       </div>
                     </div>
                     <div>
-                      <div className="flex items-center space-x-2">
-                        <h2 className="text-lg font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                      <div className="flex items-center space-x-1.5 sm:space-x-2">
+                        <h2 className="text-base sm:text-lg font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                           {CHATBOT_CONFIG.PERSONALITY.NAME}
                         </h2>
-                        <Cpu className="h-4 w-4 text-blue-400 animate-pulse" />
+                        <Cpu className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-400 animate-pulse" />
                       </div>
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-1.5 sm:space-x-2">
                         <div className="flex items-center space-x-1">
-                          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                          <p className="text-xs text-slate-300 font-medium">Online & Ready</p>
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
+                          <p className="text-[10px] sm:text-xs text-slate-300 font-medium">Online & Ready</p>
                         </div>
-                        <Brain className="h-3 w-3 text-slate-400" />
+                        <Brain className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-slate-400" />
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1 sm:space-x-2">
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={toggleSpeech}
-                      className="text-slate-300 hover:text-white hover:bg-slate-600/30 rounded-xl h-9 w-9 border border-slate-500/30 backdrop-blur-sm transition-all duration-200"
+                      className="text-slate-300 hover:text-white hover:bg-slate-600/30 rounded-xl h-8 w-8 sm:h-9 sm:w-9 border border-slate-500/30 backdrop-blur-sm transition-all duration-200"
                     >
                       {isTTSEnabled ? (
-                        <Volume2 className="h-4 w-4" />
+                        <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       ) : (
-                        <VolumeX className="h-4 w-4" />
+                        <VolumeX className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       )}
                     </Button>
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={closeModal}
-                      className="text-indigo-300 hover:text-white hover:bg-red-500/30 rounded-xl h-9 w-9 border border-indigo-500/30 backdrop-blur-sm transition-all duration-200"
+                      className="text-indigo-300 hover:text-white hover:bg-red-500/30 rounded-xl h-8 w-8 sm:h-9 sm:w-9 border border-indigo-500/30 backdrop-blur-sm transition-all duration-200"
                     >
-                      <X className="h-4 w-4" />
+                      <X className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                 </div>
               </div>
 
               {/* Messages Area */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 relative">
+              <div className="flex-1 overflow-y-auto p-2.5 sm:p-4 space-y-2.5 sm:space-y-4 relative">
                 {/* Background tech pattern */}
                 <div className="absolute inset-0 opacity-5">
                   <div className="absolute top-4 left-4 w-8 h-8 border border-indigo-400 rotate-45"></div>
@@ -563,7 +563,7 @@ Please provide a helpful and engaging response about our software development se
                       )}
 
                       <div
-                        className={`p-3 rounded-2xl backdrop-blur-sm border break-words ${
+                        className={`p-2.5 sm:p-3 rounded-2xl backdrop-blur-sm border break-words ${
                           message.sender === 'user'
                             ? 'bg-gradient-to-r from-indigo-600/80 to-purple-600/80 border-indigo-400/30 text-white shadow-lg'
                             : 'bg-gradient-to-r from-slate-700/80 to-slate-600/80 border-slate-500/30 text-white shadow-lg'
@@ -574,7 +574,7 @@ Please provide a helpful and engaging response about our software development se
                             : '0 8px 32px -8px rgba(71, 85, 105, 0.3)'
                         }}
                       >
-                        <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
+                        <p className="text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
 
                         {/* Message glow effect */}
                         <div className={`absolute inset-0 rounded-2xl opacity-20 ${
@@ -620,8 +620,8 @@ Please provide a helpful and engaging response about our software development se
 
               {/* Quick Replies */}
               {chatbotState.messages.length <= 1 && CHATBOT_CONFIG.FEATURES.QUICK_REPLIES && (
-                <div className="px-4 pb-2">
-                  <div className="flex flex-wrap gap-2">
+                <div className="px-3 sm:px-4 pb-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {CHATBOT_CONFIG.QUICK_REPLIES.slice(0, 3).map((reply, index) => (
                       <button
                         key={index}
@@ -629,7 +629,7 @@ Please provide a helpful and engaging response about our software development se
                           setInputMessage(reply);
                           setTimeout(() => handleSendMessage(), 100);
                         }}
-                        className="text-xs px-3 py-1 bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 rounded-full transition-colors"
+                        className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 bg-gray-700/50 hover:bg-gray-600/50 text-gray-300 rounded-full transition-colors"
                       >
                         {reply}
                       </button>
@@ -639,8 +639,8 @@ Please provide a helpful and engaging response about our software development se
               )}
 
               {/* Futuristic Input Area */}
-              <div className="p-4 border-t border-indigo-500/30 bg-gradient-to-r from-slate-800/50 to-indigo-900/50">
-                <div className="flex items-center space-x-3">
+              <div className="p-2 sm:p-4 border-t border-indigo-500/30 bg-gradient-to-r from-slate-800/50 to-indigo-900/50">
+                <div className="flex items-center space-x-2 sm:space-x-3">
                   <div className="flex-1 relative">
                     <input
                       ref={inputRef}
@@ -649,7 +649,7 @@ Please provide a helpful and engaging response about our software development se
                       onChange={(e) => setInputMessage(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                       placeholder="Neural interface ready..."
-                      className="w-full px-4 py-3 bg-slate-800/60 border border-indigo-500/30 rounded-2xl text-white placeholder-indigo-300/60 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-sm backdrop-blur-sm transition-all duration-300"
+                      className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-slate-800/60 border border-indigo-500/30 rounded-2xl text-white placeholder-indigo-300/60 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 text-xs sm:text-sm backdrop-blur-sm transition-all duration-300"
                       style={{
                         background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(67, 56, 202, 0.2) 100%)',
                         boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(99, 102, 241, 0.1)'
@@ -666,7 +666,7 @@ Please provide a helpful and engaging response about our software development se
                         variant="ghost"
                         size="icon"
                         onClick={chatbotState.isListening ? stopListening : startListening}
-                        className={`rounded-2xl h-12 w-12 border transition-all duration-300 ${
+                        className={`rounded-2xl h-9 w-9 sm:h-12 sm:w-12 border transition-all duration-300 ${
                           chatbotState.isListening
                             ? 'bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white border-red-400/50 shadow-lg shadow-red-500/25'
                             : 'bg-gradient-to-r from-slate-700 to-slate-600 hover:from-slate-600 hover:to-slate-500 text-indigo-300 border-indigo-500/30'
@@ -675,9 +675,9 @@ Please provide a helpful and engaging response about our software development se
                         title={chatbotState.isListening ? "Stop listening" : "Tap to speak"}
                       >
                         {chatbotState.isListening ? (
-                          <MicOff className="h-5 w-5" />
+                          <MicOff className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                         ) : (
-                          <Mic className="h-5 w-5" />
+                          <Mic className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                         )}
                         {chatbotState.isListening && (
                           <div className="absolute inset-0 rounded-2xl bg-red-400 animate-pulse opacity-30"></div>
@@ -695,9 +695,9 @@ Please provide a helpful and engaging response about our software development se
                   <Button
                     onClick={handleSendMessage}
                     disabled={!inputMessage.trim() || chatbotState.isLoading}
-                    className="rounded-2xl h-12 w-12 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white disabled:opacity-50 border border-indigo-400/30 shadow-lg shadow-indigo-500/25 transition-all duration-300 disabled:shadow-none"
+                    className="rounded-2xl h-9 w-9 sm:h-12 sm:w-12 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white disabled:opacity-50 border border-indigo-400/30 shadow-lg shadow-indigo-500/25 transition-all duration-300 disabled:shadow-none"
                   >
-                    <Send className="h-5 w-5" />
+                    <Send className="h-3.5 w-3.5 sm:h-5 sm:w-5" />
                     {!chatbotState.isLoading && (
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400/20 to-purple-400/20 opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                     )}
@@ -706,15 +706,15 @@ Please provide a helpful and engaging response about our software development se
               </div>
 
               {/* Futuristic Contact CTA */}
-              <div className="px-4 pb-4 space-y-3">
+              <div className="px-3 sm:px-4 pb-2 sm:pb-4 space-y-2 sm:space-y-3">
                 <Button
                   onClick={handleContactClick}
-                  className="w-full bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold py-3 rounded-2xl text-sm border border-cyan-400/30 shadow-lg shadow-cyan-500/25 transition-all duration-300 relative overflow-hidden group"
+                  className="w-full bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 hover:to-indigo-500 text-white font-bold py-2 sm:py-3 rounded-2xl text-xs sm:text-sm border border-cyan-400/30 shadow-lg shadow-cyan-500/25 transition-all duration-300 relative overflow-hidden group"
                 >
-                  <div className="flex items-center justify-center space-x-2">
-                    <Zap className="h-4 w-4 group-hover:animate-pulse" />
+                  <div className="flex items-center justify-center space-x-1.5 sm:space-x-2">
+                    <Zap className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:animate-pulse" />
                     <span>{CHATBOT_CONFIG.CONTACT.CTA_TEXT}</span>
-                    <Sparkles className="h-4 w-4 group-hover:animate-spin" />
+                    <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:animate-spin" />
                   </div>
                   {/* Holographic effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -722,12 +722,12 @@ Please provide a helpful and engaging response about our software development se
                 
                 <Button
                   onClick={handleSchedulingClick}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-500 hover:to-blue-500 text-white font-bold py-3 rounded-2xl text-sm border border-blue-400/30 shadow-lg shadow-blue-500/25 transition-all duration-300 relative overflow-hidden group"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-600 hover:from-blue-500 hover:to-blue-500 text-white font-bold py-2 sm:py-3 rounded-2xl text-xs sm:text-sm border border-blue-400/30 shadow-lg shadow-blue-500/25 transition-all duration-300 relative overflow-hidden group"
                 >
-                  <div className="flex items-center justify-center space-x-2">
-                    <Calendar className="h-4 w-4 group-hover:animate-pulse" />
+                  <div className="flex items-center justify-center space-x-1.5 sm:space-x-2">
+                    <Calendar className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:animate-pulse" />
                     <span>Schedule Appointment</span>
-                    <Clock className="h-4 w-4 group-hover:animate-spin" />
+                    <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:animate-spin" />
                   </div>
                   {/* Holographic effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
@@ -751,7 +751,7 @@ const PermanentChatbotButton: React.FC<PermanentChatbotButtonProps> = ({ onOpenM
 
   return (
     <motion.div
-      className="fixed bottom-6 right-6 z-40"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40"
       initial={{ scale: 0, rotate: -180 }}
       animate={{ scale: 1, rotate: 0 }}
       transition={{ type: "spring", duration: 0.8, delay: 0.5 }}
@@ -775,7 +775,7 @@ const PermanentChatbotButton: React.FC<PermanentChatbotButtonProps> = ({ onOpenM
           onHoverEnd={() => setIsHovered(false)}
           whileHover={{ scale: 1.1, rotate: 5 }}
           whileTap={{ scale: 0.95 }}
-          className="relative w-20 h-20 rounded-full shadow-2xl backdrop-blur-sm transition-all duration-300 overflow-hidden group"
+          className="relative w-14 h-14 rounded-full shadow-2xl backdrop-blur-sm transition-all duration-300 overflow-hidden group"
           aria-label="Chat with AI Assistant"
           style={{
             boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.6)'
@@ -788,8 +788,8 @@ const PermanentChatbotButton: React.FC<PermanentChatbotButtonProps> = ({ onOpenM
             className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
           />
           {/* Glowing robot eyes - positioned over the image */}
-          <div className="absolute top-3 left-4 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-lg"></div>
-          <div className="absolute top-3 right-4 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-lg"></div>
+          <div className="absolute top-2 left-3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-lg"></div>
+          <div className="absolute top-2 right-3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse shadow-lg"></div>
 
           {/* Online activity indicator */}
           <div className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full border-2 border-slate-800 flex items-center justify-center z-10">

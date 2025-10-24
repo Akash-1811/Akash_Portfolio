@@ -104,7 +104,7 @@ Keep responses concise but valuable, and always make users feel welcomed and val
     TYPING_INDICATOR: true,
     MESSAGE_TIMESTAMPS: false,
     CONVERSATION_MEMORY: true,
-    QUICK_REPLIES: true,
+    QUICK_REPLIES: false,
   },
 
   // Quick Reply Suggestions
